@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Computer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-toggle" id="fileExplorerToggle">☰</button>
+            <h1>Markdown Computer</h1>
+        </div>
+        <button class="menu-toggle" id="aiSidebarToggle">🤖</button>
+    </header>
+
+    <div class="container">
+        <!-- File Explorer -->
+        <div class="file-explorer" id="fileExplorer">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search files... (not working yet)">
+            </div>
+            <h2>File Explorer</h2>
+            <div class="file-tree" id="fileTree">
+                if you can see this its not loading files
+                <!-- File items will be populated here -->
+            </div>
+        </div>
+
+        <!-- Editor Section -->
+        <div class="editor-container">
+            <div class="editor-toolbar">
+                <button class="toolbar-btn">B</button>
+                <button class="toolbar-btn">I</button>
+                <button class="toolbar-btn">#</button>
+                <button class="toolbar-btn">-</button>
+                <button class="toolbar-btn">[]</button>
+            </div>
+            <textarea class="editor" placeholder="Start writing your notes here..."></textarea>
+        </div>
+
+        <!-- AI Assistant Sidebar -->
+        <div class="ai-sidebar" id="aiSidebar">
+            <div class="ai-header">
+                <h3>AI Assistant</h3>
+            </div>
+            <div class="chat-container">
+                <div class="chat-messages">
+                    <div class="message ai">
+                        Hello! I'm your AI assistant. How can I help you with your notes today?
+                    </div>
+                    <div class="message user">
+                        Can you help me organize my research notes?
+                    </div>
+                </div>
+                <div class="chat-input-container">
+                    <textarea class="chat-input" placeholder="Ask the AI assistant..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
