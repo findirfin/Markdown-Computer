@@ -9,57 +9,31 @@
 <body>
     <header class="header">
         <div class="header-left">
-            <button class="menu-toggle" id="fileExplorerToggle">☰</button>
             <h1>Markdown Computer</h1>
         </div>
-        <button class="menu-toggle" id="aiSidebarToggle">🤖</button>
+        <div class="header-right">
+            <button class="tool-button" data-tool="file-explorer" data-url="explorer/explorer.html">📁</button>
+            <button class="tool-button" data-tool="editor" data-url="editor/editor.html">📝</button>
+            <button class="tool-button" data-tool="chat" data-url="chat/chat.html">🤖</button>
+        </div>
     </header>
 
-    <div class="container">
-        <!-- File Explorer -->
-        <div class="file-explorer" id="fileExplorer">
-            <div class="search-bar">
-                <input type="text" class="search-input" placeholder="Search files... (not working yet)">
-            </div>
-            <h2>File Explorer</h2>
-            <div class="file-tree" id="fileTree">
-                if you can see this its not loading files
-                <!-- File items will be populated here -->
-            </div>
-        </div>
-
-        <!-- Editor Section -->
-        <div class="editor-container">
-            <div class="editor-toolbar">
-                <button class="toolbar-btn">B</button>
-                <button class="toolbar-btn">I</button>
-                <button class="toolbar-btn">#</button>
-                <button class="toolbar-btn">-</button>
-                <button class="toolbar-btn">[]</button>
-            </div>
-            <textarea class="editor" placeholder="Start writing your notes here..."></textarea>
-        </div>
-
-        <!-- AI Assistant Sidebar -->
-        <div class="ai-sidebar" id="aiSidebar">
-            <div class="ai-header">
-                <h3>AI Assistant</h3>
-            </div>
-            <div class="chat-container">
-                <div class="chat-messages">
-                    <div class="message ai">
-                        Hello! I'm your AI assistant. How can I help you with your notes today?
-                    </div>
-                    <div class="message user">
-                        Can you help me organize my research notes?
-                    </div>
-                </div>
-                <div class="chat-input-container">
-                    <textarea class="chat-input" placeholder="Ask the AI assistant..."></textarea>
-                </div>
-            </div>
-        </div>
+    <div class="workspace" id="workspace">
+        <!-- Tool windows will be arranged horizontally -->
     </div>
+
+    <template id="tool-window-template">
+        <div class="tool-window">
+            <div class="tool-window-header">
+                <span class="tool-window-title"></span>
+                <button class="tool-window-close">×</button>
+            </div>
+            <div class="tool-window-content">
+                <iframe class="tool-window-frame"></iframe>
+            </div>
+            <div class="resize-handle"></div>
+        </div>
+    </template>
 
     <script type="module" src="js/main.js"></script>
 </body>
