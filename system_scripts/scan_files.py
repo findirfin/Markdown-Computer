@@ -7,20 +7,17 @@ def scan_files():
     files_dir = base_dir / 'files'
     output_file = base_dir / 'file_structure.json'
     
-    # Scan directory
     tree = {
         'files': _scan_directory(files_dir)
     }
     
-    # Write to file
     try:
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(tree, f, indent=2)
-        print(f"Updated {output_file}")
+        return tree
     except Exception as e:
         print(f"Error writing to {output_file}: {e}")
-    
-    return tree['files']
+        return {'files': {}, 'error': str(e)}
 
 def _scan_directory(directory):
     tree = {}
@@ -36,7 +33,6 @@ def _scan_directory(directory):
                     'extension': item_path.suffix.lower(),
                 }
                 
-                # Add preview for text files (limit to 1KB)
                 if item_path.suffix.lower() in ['.txt', '.md', '.json', '.js', '.py', '.html', '.css']:
                     try:
                         with open(item_path, 'r', encoding='utf-8') as f:

@@ -1,0 +1,52 @@
+.file-explorer {
+    background: #1e1e1e;
+    color: #fff;
+    height: 100%;
+    width: 250px;
+}
+
+#file-tree {
+    padding: 10px;
+}
+
+.directory, .file {
+    padding: 2px 0;
+}
+
+.directory-header {
+    cursor: pointer;
+    padding: 2px 0;
+}
+
+.directory-header:hover {
+    background: #2a2a2a;
+}
+
+.directory-content {
+    padding-left: 20px;
+}
+
+.file {
+    cursor: pointer;
+    padding-left: 20px;
+}
+
+.file:hover {
+    background: #2a2a2a;
+}
+
+.hidden {
+    display: none;
+}
+
+.toggle {
+    display: inline-block;
+    width: 16px;
+    color: #666;
+}
+
+.error {
+    color: #ff6b6b;
+    padding: 10px;
+    text-align: center;
+}

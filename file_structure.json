@@ -1,5 +1,9 @@
 {
   "files": {
+    "updates": {
+      "type": "directory",
+      "contents": {}
+    },
     "test2.md": {
       "type": "file",
       "size": 0,
@@ -13,6 +17,21 @@
       "modified": 1740267949.5757241,
       "extension": ".md",
       "preview": ""
+    },
+    "whatsupamerica": {
+      "type": "directory",
+      "contents": {
+        "joebiden.doc": {
+          "type": "file",
+          "size": 0,
+          "modified": 1740269979.3199196,
+          "extension": ".doc"
+        },
+        "commies": {
+          "type": "directory",
+          "contents": {}
+        }
+      }
     }
   }
 }

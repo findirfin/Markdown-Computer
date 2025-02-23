@@ -1,5 +1,8 @@
 import { ToolWindow } from './ToolWindow.js';
 
+// Configuration
+const FILE_REFRESH_INTERVAL = 5000; // 5 seconds - balanced for performance
+
 // Check API availability
 async function waitForApi(maxAttempts = 50) {
     for (let i = 0; i < maxAttempts; i++) {
@@ -17,6 +20,27 @@ async function waitForApi(maxAttempts = 50) {
         await new Promise(resolve => setTimeout(resolve, 100));
     }
     return false;
+}
+
+// Periodic file structure update
+async function startFileStructureUpdates() {    
+    async function update() {
+        try {
+            const apiReady = await waitForApi();
+            if (apiReady) {
+                await window.pywebview.api.scan_files();
+                console.log('File structure updated');
+            }
+        } catch (error) {
+            console.error('Error updating file structure:', error);
+        }
+    }
+
+    // Initial update
+    await update();
+    
+    // Set up periodic updates with standardized interval
+    setInterval(update, FILE_REFRESH_INTERVAL);
 }
 
 // Set up tool buttons
@@ -48,5 +72,5 @@ async function updateFileStructure() {
 
 // Initialize after DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    updateFileStructure();
+    startFileStructureUpdates();
 });
